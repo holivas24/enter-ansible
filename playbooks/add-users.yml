@@ -3,8 +3,8 @@
   hosts: pop_os
   vars:
     users:
-      - {name: "bob", groups: "dialout,sudo", shell: "/bin/bash"}
-      - {name: "alice", groups: "dialout", shell: "/bin/bash"}
+      - {name: "bob", groups: "red,blue", shell: "/bin/bash"}
+      - {name: "alice", groups: "red", shell: "/bin/bash"}
   tasks:
     - name: Add users
       user:

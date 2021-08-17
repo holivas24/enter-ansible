@@ -5,6 +5,7 @@
     packages:
       - htop
       - snap
+      - git
   tasks:
     - name: Run apt install
       apt:
