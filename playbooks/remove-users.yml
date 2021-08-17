@@ -1,0 +1,15 @@
+---
+- name: Manage users
+  hosts: pop_os
+  vars:
+    users:
+      - bob
+      - alice
+  tasks:
+    - name: Remove users
+      user:
+        name: "{{ item }}"
+        state: absent
+        remove: yes
+      loop: "{{ users }}"
+      become: yes

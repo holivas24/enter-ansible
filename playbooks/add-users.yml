@@ -1,0 +1,15 @@
+---
+- name: Manage users
+  hosts: pop_os
+  vars:
+    users:
+      - {name: "bob", groups: "dialout,sudo", shell: "/bin/bash"}
+      - {name: "alice", groups: "dialout", shell: "/bin/bash"}
+  tasks:
+    - name: Add users
+      user:
+        name: "{{ item.name }}"
+        groups: "{{ item.groups }}"
+        shell: "{{ item.shell }}"
+      loop: "{{ users }}"
+      become: yes
