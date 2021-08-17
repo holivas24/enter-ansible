@@ -1,0 +1,8 @@
+---
+- name: Copy files
+  hosts: pop_os
+  tasks:
+    - name: Copy example file
+      copy:
+        src: ../files/file.tmp
+        dest: "{{ home_path }}"

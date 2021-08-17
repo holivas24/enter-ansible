@@ -1,0 +1,23 @@
+---
+- name: Manage files
+  hosts: pop_os
+  tasks:
+    - name: Remove file
+      file:
+        path: "{{ home_path }}/file.tmp"
+        state: absent
+    - name: Create directory
+      file:
+        path: "{{ home_path }}/example_dir"
+        state: directory
+        mode: 0644
+    - name: Copy example file
+      copy:
+        src: ../files/file.tmp
+        dest: "{{ home_path }}"
+        mode: 0644
+    - name: Create link to file
+      file:
+        src: "{{ home_path }}/file.tmp"
+        dest: "{{ home_path }}/file.current"
+        state: link
