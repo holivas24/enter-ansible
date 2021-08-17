@@ -1,0 +1,11 @@
+ansible -i hosts pop_os -m ping -u holivas
+ansible pop_os -m -a "df -h"
+ansible pop_os -m -a "free -h"
+ansible centos -b -m yum -a "name=htop state=present"
+ansible autozone -b -m package -a "name=git state=present"
+ansible centos_box -b -m user -a "name=iarvizu state=present  group=sdlc-tools createhome=yes"
+ansible centos -b -m group -a "name=sdlc-tools state=present"
+ansible multi -m stat -a "path=/etc/rc.local"
+ansible multi -m file -a "dest=/az/app mode=644 state=directory"
+ansible multi -m file -a "dest=/az/app state=absent"
+ansible multi -m cron -a "name=weekly-update weekday=0 hour=5 minute=0 job=/az/iarvizu/bin/update.sh"
