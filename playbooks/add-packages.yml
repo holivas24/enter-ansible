@@ -1,0 +1,14 @@
+---
+- name: Install packages
+  hosts: pop_os
+  vars:
+    packages:
+      - htop
+      - snap
+  tasks:
+    - name: Run apt install
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ packages }}"
+      become: yes
