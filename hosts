@@ -2,3 +2,14 @@
 pop_os1
 pop_os2
 pop_os3
+
+[even]
+pop_os2
+
+[odd]
+pop_os1
+pop_os3
+
+[todos:children]
+even
+odd
